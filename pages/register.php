@@ -7,8 +7,27 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect: " . mysqli_connect_errno();
 }
 
+// varriablen deklarieren
+$fname = ""; // first name 
+$lname = ""; // last name
+$mail = ""; // email
+$mail2 = ""; // confirm email 
+$passwd = ""; // password
+$passwd2 = ""; // confirm password
+$date = ""; // Sign up date
+$error_array = ""; // Holds error messages
+
+
 // mit \$con verbindet man der Datenbank 
-$query = mysqli_query($con, "insert into test values (null,'Stjepan');");
+//$query = mysqli_query($con, "insert into test values (null,'Stjepan');");
+
+if (isset($_POST['register_button'])) {
+
+    // Registration form values
+    $fname = strip_tags($_POST['reg_fname']); //Removee html tags
+    $fname = str_replace('', '', $fname); // remove spaces
+    $fanme = ucfirst(strtolower($fname)); // Uppercase first letter
+}
 ?>
 
 
@@ -36,7 +55,7 @@ $query = mysqli_query($con, "insert into test values (null,'Stjepan');");
         <input type="password" name="reg_password" placeholder="Password" required>
         <br>
         <input type="password" name="reg_password2" placeholder="Confirm Password" required>
-
+        <br>
         <input type="submit" name="register_button" value="Register">
     </form>
 
