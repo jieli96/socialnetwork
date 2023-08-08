@@ -1,16 +1,3 @@
-<?php
-
-$con = mysqli_connect("localhost", "root", "", "social");
-
-// überprüft ob error hat
-if (mysqli_connect_errno()) {
-    echo "Failed to connect: " . mysqli_connect_errno();
-}
-
-// mit \$con verbindet man der Datenbank 
-$query = mysqli_query($con, "insert into test values (null,'Stjepan');");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
